@@ -25,7 +25,6 @@ function addMeow(content) {
 function loadSuggestedProfiles() {
     var suggestedProfilesList = document.querySelector("#perfilesSugeridos");
     var newItem;
-    var newDiv;
     for (var i = 0; i < 3; i++) {
         newItem = document.createElement("li");
         newItem.className = "list-group-item";
@@ -39,7 +38,17 @@ function loadSuggestedProfiles() {
     }
 }
 
-
+function loadTendencies () {
+    var tendenciesDOM = document.querySelector("#listaTendencias")
+    var newItem;
+    for (var i = 0; i < 3; i++) {
+        newItem = document.createElement("li");
+        newItem.className = "list-group-item";
+        newItem.innerHTML = '<li> <h6> '+ noticias[i].title +'</h6>'+ noticias[i].content +'</li>';
+        tendenciesDOM.appendChild(newItem);
+        
+    }
+}
 
 
 function updateNewMeow() {
@@ -90,7 +99,8 @@ function updateUserNameDisplay() {
 $(document).ready(function () {
     updateUserNameDisplay();
     $('#loginModal').modal('show');
-
     loadPosts();
     loadSuggestedProfiles();
+    loadTendencies();
 });
+

@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -12,8 +11,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script src="js/suggestedProfiles.js"></script>
-
-
+    <script src="js/meows.js"></script>
+    <script src="js/tendencies.js"></script>
 </head>
 
 <body>
@@ -95,7 +94,7 @@
                 <button class="btn btn-outline-primary my-2 my-sm-0 roundedEdge" type="submit">Search</button>
             </form> -->
 
-            <button type="button" class="btn btn-primary roundedEdge" data-toggle="modal" data-target="#loginModal">
+            <button type="button" class="btn btn-primary roundedEdge button-margin" data-toggle="modal" data-target="#loginModal">
                 Sign-in
             </button>
 
@@ -114,12 +113,11 @@
                     <!-- <div id="suggestedProfilePic"></div>
                 <span class="h6"> Nombre Perfil</span>@profile -->
                 </div>
-                <div class=" tendencias">
-                    <div class="tendencia">Tendencia</div>
-                    <div class="tendencia">Tendencia</div>
-                    <div class="tendencia">Tendencia</div>
+                <div class="tendencias">
+                    <h5>Tendencias</h5>
+                    <ul class="list-group list-group-flush" id="listaTendencias">
+                    </ul>
                 </div>
-
             </div>
 
 
@@ -132,7 +130,7 @@
 
                         <!-- <label for="content">Meow</label> -->
                         <textarea class="form-control" id="Meow" name="Meoww" rows="1" placeholder="Meow?"></textarea>
-                        
+
                         <div class="col-9 justify-text">Write your mew and send it.</div>
                         <button type="submit" class="col-3 btn btn-primary form-button  roundedEdge">Meow!</button>
 
