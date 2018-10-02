@@ -43,7 +43,7 @@ var postsToLoad = [
   },
   {
       "authorName": "Fluffy User",
-      "username": "@FloffyUser",
+      "username": "@FluffyUser",
       "content":"Prr Prr World!!",
       "likes":0,
   }

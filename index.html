@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -16,7 +17,49 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" data-show="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">Meow User Login
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Ingrese su nombre y usuario</h5> -->
+
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Meow User</label>
+                            <input type="name" class="form-control" id="currentUserName" aria-describedby="" name="name"
+                                placeholder="@MeowUser">
+                            <small id="emailHelp" class="form-text text-muted">Ingrese su nombre de usuario.</small>
+                        </div>
+                        <div class="form-group login-group">
+                            <label for="inputPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <!-- <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div> -->
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" aria-label="Close">Submit</button>
+                            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,35 +90,52 @@
                 </li>
 
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-primary my-2 my-sm-0 roundedEdge" type="submit">Search</button>
-            </form>
+            </form> -->
+
+            <button type="button" class="btn btn-primary roundedEdge" data-toggle="modal" data-target="#loginModal">
+                Sign-in
+            </button>
+
         </div>
     </nav>
 
 
-    <div class="container">
+    <div class="container push-down">
         <div class="row">
+
             <div class="col-3">
-                <div class="perfilUsuario alert alert-dark">Perfil Usuario</div>
-                <div class="tendencias">
+                <div class=" perfil">
+                    <div id="currentUserProfilePic"></div>
+                    <h5 id="nameDisplay"></h5>
+                    <h6 id="userNameDisplay"></h6>
+                    <!-- <div id="suggestedProfilePic"></div>
+                <span class="h6"> Nombre Perfil</span>@profile -->
+                </div>
+                <div class=" tendencias">
                     <div class="tendencia">Tendencia</div>
                     <div class="tendencia">Tendencia</div>
                     <div class="tendencia">Tendencia</div>
                 </div>
+
             </div>
+
+
             <div class="col-6">
                 <div class="row posting">
-                    <div class="profilePicPost col-1">
+                    <div class="profilePicPost">
                         <img src="icons/github-logo.png" alt="">
                     </div>
                     <form class="col-11 form-group row" id="meowForm">
+
+                        <!-- <label for="content">Meow</label> -->
+                        <textarea class="form-control" id="Meow" name="Meoww" rows="1" placeholder="Meow?"></textarea>
                         
-                            <!-- <label for="content">Meow</label> -->
-                            <textarea class="form-control col-8" id="Meow" name="Meoww" rows="1" placeholder="Meow?"></textarea>
-                            <button type="submit" class="btn btn-primary form-button col-4">Post Meow</button>
-                        
+                        <div class="col-9 justify-text">Write your mew and send it.</div>
+                        <button type="submit" class="col-3 btn btn-primary form-button  roundedEdge">Meow!</button>
+
                     </form>
                 </div>
                 <ul class="row posts">
@@ -87,10 +147,10 @@
                             <a href="#" class="card-link">Likes posts[i].likes</a>
                         </div>
                     </li> -->
-
                 </ul>
-
             </div>
+
+
             <div class="col-3 ">
                 <div class="sugeridos">
 
@@ -103,11 +163,9 @@
                         </li>                     -->
                     </ul>
 
+
                 </div>
-                <div class="tendencias">
-                    <div class="tendencia">Tendencia</div>
-                    <div class="tendencia">Tendencia</div>
-                </div>
+
             </div>
         </div>
     </div>

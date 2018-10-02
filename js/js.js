@@ -1,6 +1,3 @@
-var currentUser = "Salvador"
-var currentUserName = "@salvadorS."
-
 
 function loadPosts() {
     var posts = document.querySelector(".posts");
@@ -14,7 +11,6 @@ function loadPosts() {
     }
 
 }
-loadPosts();
 
 function addMeow(content) {
     postsToLoad.push({
@@ -44,28 +40,57 @@ function loadSuggestedProfiles() {
 }
 
 
-loadSuggestedProfiles();
 
-function updateNewMeow(){
+
+function updateNewMeow() {
     var posts = document.querySelector(".posts");
     var newPost;
 
     newPost = document.createElement("div");
     newPost.className = "card";
-    newPost.innerHTML = '<li class="card-body"><h5 class="card-title">' + postsToLoad[postsToLoad.length-1].authorName + '</h5><h6 class="card-subtitle mb-2 text-muted">' + postsToLoad[postsToLoad.length-1].username + '</h6><p class="card-text">' + postsToLoad[postsToLoad.length-1].content + '</p><a href="#" class="card-link">Likes: ' + postsToLoad[postsToLoad.length-1].likes + '</a></li>';
+    newPost.innerHTML = '<li class="card-body"><h5 class="card-title">' + postsToLoad[postsToLoad.length - 1].authorName + '</h5><h6 class="card-subtitle mb-2 text-muted">' + postsToLoad[postsToLoad.length - 1].username + '</h6><p class="card-text">' + postsToLoad[postsToLoad.length - 1].content + '</p><a href="#" class="card-link">Likes: ' + postsToLoad[postsToLoad.length - 1].likes + '</a></li>';
     // posts.appendChild(newPost);
     posts.insertBefore(newPost, posts.children[0]);
 }
 
-
-
-
 const form = document.querySelector("#meowForm");
-
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     var formData = new FormData(form);
     var meowContent = formData.get("Meoww");
     addMeow(meowContent);
     updateNewMeow();
+});
+
+const loginForm = document.querySelector('#loginForm');
+loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    var loginData = new FormData(loginForm);
+    currentUserName = "@" + loginData.get("name");
+    currentUser = loginData.get("name");
+    $('#loginModal').modal('hide');
+    updateUserNameDisplay();
+
+});
+
+var currentUser = "Mistery Kitten"
+var currentUserName = "@Anonymus Kitten"
+var currentUserPic = '<img src="icons/github-logo.png" alt="profile picture"></img>'
+function updateUserNameDisplay() {
+    var nameDisplay = document.getElementById("nameDisplay");
+    nameDisplay.innerHTML = currentUser;
+    var userNameDisplay = document.getElementById("userNameDisplay");
+    userNameDisplay.innerHTML = currentUserName;
+    var currentUserProfilePic = document.getElementById("currentUserProfilePic");
+    currentUserProfilePic.innerHTML = currentUserPic;
+}
+
+
+
+$(document).ready(function () {
+    updateUserNameDisplay();
+    $('#loginModal').modal('show');
+
+    loadPosts();
+    loadSuggestedProfiles();
 });
